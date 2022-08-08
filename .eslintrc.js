@@ -13,7 +13,7 @@ module.exports = {
     /*
     "off"或者0    //关闭规则关闭
     "warn"或者1    //在打开的规则作为警告（不影响退出代码）
-    "error"或者2    //把规则作为一个错误（退出代码触发时为1） 
+    "error"或者2    //把规则作为一个错误（退出代码触发时为1）
     */
 
     'no-var': 'error', // 禁止使用var
@@ -25,7 +25,7 @@ module.exports = {
     'no-new-object': 'error', // 对象使用字面值创建对象
     'array-callback-return': 'error', // 在数组方法的回调中强制执行
     'prefer-destructuring': [
-      'error',
+      'off',
       {
         array: true,
         object: true,
@@ -37,17 +37,17 @@ module.exports = {
     quotes: ['error', 'single'], // string 统一用单引号 ''
     'prefer-template': 'error', // 建议使用模板字符串
     'no-eval': 'error', // 禁止使用eval
-    'no-useless-escape': 'error', // 不要使用不必要的转义字符
+    'no-useless-escape': 'off', // 不要使用不必要的转义字符
     'func-style': 'error', // 用命名函数表达式而不是函数声明
     'prefer-rest-params': 'error', // 建议使用rest参数而不是参数
     'space-before-function-paren': ['error', 'never'], // 函数前不允许使用空格或
     'space-before-blocks': ['error', 'always'], // 块前需要空格
-    'no-param-reassign': 'error', // 不允许重新分配函数参数
+    'no-param-reassign': 'off', // 不允许重新分配函数参数
     'prefer-spread': 'off', // 建议使用spread语法而不是.apply（）
     'prefer-arrow-callback': 'off', // 建议使用箭头函数
     'arrow-spacing': 'error', // 箭头函数的箭头前后需要空格
     //  "arrow-parens": ["error", "always"], // 在arrow函数参数中需要paren
-    'arrow-body-style': ['error', 'always'], // 在箭头函数体中需要大括号
+    'arrow-body-style': ['off', 'always'], // 在箭头函数体中需要大括号
     'no-confusing-arrow': ['error', { allowParens: true }], // 不允许箭头函数与比较混淆
     'no-useless-constructor': 'error', // 不允许不必要的构造函数
     'no-dupe-class-members': 'error', // 不允许在类成员中使用重复名称
@@ -58,14 +58,14 @@ module.exports = {
     'dot-notation': 'error', // 访问属性时使用点符号
     'no-restricted-properties': 'error', // 做幂运算时用幂操作符 **
     'one-var': ['off', 'always'], // 强制在函数中单独声明变量
-    'no-multi-assign': 'error', // 不要使用连续变量分配
-    'no-plusplus': 'error', // 不要使用一元递增递减运算符（++， --）
+    'no-multi-assign': 'off', // 不要使用连续变量分配
+    'no-plusplus': 'off', // 不要使用一元递增递减运算符（++， --）
     'no-unused-vars': 'off', // 不允许有未使用的变量
     eqeqeq: ['off', 'always'], // 使用 === 和 !== 而不是 == 和 !=
     'no-case-declarations': 'error', // 不允许在case/default子句中使用词法声明
-    'no-nested-ternary': 'error', // 三元表达式不应该嵌套，通常是单行表达式
+    'no-nested-ternary': 'off', // 三元表达式不应该嵌套，通常是单行表达式
     'no-unneeded-ternary': 'error', // 避免不需要的三元表达式
-    'no-mixed-operators': 'error', // 不允许不同运算符的混合
+    'no-mixed-operators': 'off', // 不允许不同运算符的混合
     'nonblock-statement-body-position': ['error', 'beside'], // 强制单行语句的位置
     'brace-style': 'error', // 需要大括号样式
     'no-else-return': 'error', // 如果if语句都要用return返回，那后面的else就不用写了。如果if块中包含return，它后面的else if块中也包含了return，这个时候就可以把else if拆开
@@ -98,7 +98,7 @@ module.exports = {
     radix: ['error', 'as-needed'], // 需要基数参数
     //  "id-length": "error",
     camelcase: ['error', { properties: 'always' }], // 要求驼峰式命名对象、函数、实例
-    'new-cap': 'error', // 要求构造函数名称以大写字母开头
+    'new-cap': 'off', // 要求构造函数名称以大写字母开头
     'no-underscore-dangle': 'off', // 不要用前置或后置下划线
   },
 }
