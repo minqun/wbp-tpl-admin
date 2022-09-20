@@ -1,7 +1,14 @@
+<!--
+ * @Date: 2022-08-08 18:49:34
+ * @LastEditors: M.re c1029mq@qq.com
+ * @LastEditTime: 2022-09-14 17:17:50
+ * @FilePath: /webpack-tpl-admin/src/layout/components/AppMain.vue
+-->
 <template>
   <section class="app-main">
     <transition name="fade-transform" mode="out-in">
       <keep-alive :include="cachedViews">
+        <!-- key， include 为核心  -->
         <router-view :key="key" />
       </keep-alive>
     </transition>

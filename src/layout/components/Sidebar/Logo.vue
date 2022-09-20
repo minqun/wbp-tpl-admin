@@ -1,3 +1,9 @@
+<!--
+ * @Date: 2022-08-08 18:49:34
+ * @LastEditors: M.re c1029mq@qq.com
+ * @LastEditTime: 2022-09-14 17:31:41
+ * @FilePath: /webpack-tpl-admin/src/layout/components/Sidebar/Logo.vue
+-->
 <template>
   <div class="sidebar-logo-container" :class="{ collapse: collapse }">
     <transition name="sidebarLogoFade">
@@ -24,7 +30,7 @@
     },
     data() {
       return {
-        title: 'Vue Element Admin',
+        title: 'TPL - Admin',
         logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png',
       }
     },

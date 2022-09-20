@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-08-03 18:09:10
  * @LastEditors: M.re c1029mq@qq.com
- * @LastEditTime: 2022-08-08 18:42:10
+ * @LastEditTime: 2022-08-17 17:13:56
  * @FilePath: /webpack-tpl-admin/src/layout/mixin/ResizeHandler.js
  */
 import store from '@/store'
@@ -24,7 +24,7 @@ export default {
     window.removeEventListener('resize', this.$ResizeHandler)
   },
   mounted() {
-    const isMobile = this.$_isMobile()
+    const isMobile = this.$IsMobile()
     if (isMobile) {
       store.dispatch('app/toggleDevice', 'mobile')
       store.dispatch('app/closeSideBar', { withoutAnimation: true })

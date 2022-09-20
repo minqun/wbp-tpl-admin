@@ -3,11 +3,14 @@
  * @Author: voanit
  * @Date: 2021-07-15 19:10:38
  * @LastEditors: M.re c1029mq@qq.com
- * @LastEditTime: 2022-08-08 18:49:29
+ * @LastEditTime: 2022-09-20 14:38:15
  */
 
 const path = require('path')
 const settings = require('./src/settings.js')
+const resolve = dir => {
+  return path.join(__dirname, dir)
+}
 
 module.exports = {
   chainWebpack: config => {
@@ -23,6 +26,18 @@ module.exports = {
     // config
     // .plugin('webpack-bundle-analyzer')
     // .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+    config.module.rule('svg').exclude.add(resolve('src/icons')).end()
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(resolve('src/icons'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]',
+      })
+      .end()
     config.module
       .rule('ts')
       .test(/\.ts?$/)
@@ -56,11 +71,12 @@ module.exports = {
     port: 8100,
     proxy: {
       '^/api': {
-        target: 'http://xxxxx',
+        target: '/',
         ws: true,
         changeOrigin: true,
       },
     },
+    before: require('./mock/mock-server.js'),
   },
 
   pluginOptions: {

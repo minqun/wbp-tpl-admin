@@ -11,7 +11,6 @@
       <div class="title-container">
         <h3 class="title">Login Form</h3>
       </div>
-
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
@@ -91,10 +90,9 @@
           username: [{ required: true, trigger: 'blur', validator: validateUsername }],
           password: [{ required: true, trigger: 'blur', validator: validatePassword }],
         },
-        passwordType: 'password',
         capsTooltip: false,
+        passwordType: 'password',
         loading: false,
-        showDialog: false,
         redirect: undefined,
         otherQuery: {},
       }
@@ -111,18 +109,13 @@
         immediate: true,
       },
     },
-    created() {
-      // window.addEventListener('storage', this.afterQRScan)
-    },
+    created() {},
     mounted() {
       if (this.loginForm.username === '') {
         this.$refs.username.focus()
       } else if (this.loginForm.password === '') {
         this.$refs.password.focus()
       }
-    },
-    destroyed() {
-      // window.removeEventListener('storage', this.afterQRScan)
     },
     methods: {
       checkCapslock(e) {
@@ -140,12 +133,14 @@
         })
       },
       handleLogin() {
+        // this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
         this.$refs.loginForm.validate(valid => {
           if (valid) {
             this.loading = true
             this.$store
               .dispatch('user/login', this.loginForm)
-              .then(() => {
+              .then(res => {
+                console.log(res)
                 this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
                 this.loading = false
               })
@@ -166,32 +161,11 @@
           return acc
         }, {})
       },
-      // afterQRScan() {
-      //   if (e.key === 'x-admin-oauth-code') {
-      //     const code = getQueryObject(e.newValue)
-      //     const codeMap = {
-      //       wechat: 'code',
-      //       tencent: 'code'
-      //     }
-      //     const type = codeMap[this.auth_type]
-      //     const codeName = code[type]
-      //     if (codeName) {
-      //       this.$store.dispatch('LoginByThirdparty', codeName).then(() => {
-      //         this.$router.push({ path: this.redirect || '/' })
-      //       })
-      //     } else {
-      //       alert('第三方登录失败')
-      //     }
-      //   }
-      // }
     },
   }
 </script>
 
 <style lang="scss">
-  /* 修复input 背景不协调 和光标变色 */
-  /* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
-
   $bg: #283443;
   $light_gray: #fff;
   $cursor: #fff;
@@ -225,7 +199,9 @@
         }
       }
     }
-
+    .el-form-item__content {
+      display: flex;
+    }
     .el-form-item {
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(0, 0, 0, 0.1);

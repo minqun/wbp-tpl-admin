@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-08-03 18:09:10
  * @LastEditors: M.re c1029mq@qq.com
- * @LastEditTime: 2022-08-08 14:23:35
+ * @LastEditTime: 2022-09-14 17:39:52
  * @FilePath: /webpack-tpl-admin/src/layout/index.vue
 -->
 <template>
@@ -14,38 +14,32 @@
     <sidebar class="sidebar-container" />
     <div :class="{ hasTagsView: needTagsView }" class="main-container">
       <div :class="{ 'fixed-header': fixedHeader }">
-        <!--  <navbar />
+        <navbar />
         <tags-view v-if="needTagsView" />
       </div>
       <app-main />
-      <right-panel v-if="showSettings">
-        <settings />
-      </right-panel> -->
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-  // import RightPanel from '@/components/RightPanel'
-  import { Sidebar } from './components'
   import ResizeMixin from './mixin/ResizeHandler'
   import { mapState } from 'vuex'
-
+  import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
   export default {
     name: 'Layout',
     components: {
-      // AppMain,
-      // Navbar,
-      // RightPanel,
-      // Settings,
+      AppMain,
+      Navbar,
+      Settings,
       Sidebar,
-      // TagsView
+      TagsView,
     },
     mixins: [ResizeMixin],
     computed: {
       ...mapState({
         sidebar: state => state.app.sidebar,
+        device: state => state.app.device,
         showSettings: state => state.settings.showSettings,
         needTagsView: state => state.settings.tagsView,
         fixedHeader: state => state.settings.fixedHeader,

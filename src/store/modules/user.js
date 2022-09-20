@@ -38,7 +38,7 @@ const actions = {
           const { data } = response
           commit('SET_TOKEN', data.token)
           setToken(data.token)
-          resolve()
+          resolve(data)
         })
         .catch(error => {
           reject(error)
@@ -87,7 +87,7 @@ const actions = {
           resetRouter()
 
           // reset visited views and cached views
-          // to fixed https://github.com/PanJiaChen/vue-element-admin/issues/2485
+          // to fixed https://github.com/PanJiaChen/api/issues/2485
           dispatch('tagsView/delAllViews', null, { root: true })
 
           resolve()

@@ -1,3 +1,9 @@
+/*
+ * @Date: 2022-08-08 18:49:34
+ * @LastEditors: M.re c1029mq@qq.com
+ * @LastEditTime: 2022-09-20 14:41:30
+ * @FilePath: /webpack-tpl-admin/.eslintrc.js
+ */
 module.exports = {
   root: true,
   // parser: 'babel-eslint',
@@ -16,10 +22,11 @@ module.exports = {
     "error"或者2    //把规则作为一个错误（退出代码触发时为1）
     */
 
+    'no-trailing-spaces': 'off',
     'no-var': 'error', // 禁止使用var
     'prefer-const': 'error', // 建议使用const
     'no-const-assign': 'error', // 禁止修改使用const（no-const-assign）声明的变量
-    'object-shorthand': 'error', // 方法属性值简写
+    'object-shorthand': 'off', // 方法属性值简写
     'quote-props': ['error', 'as-needed'], // 只对那些无效的标示使用引号 ''
     'no-array-constructor': 'error', // 数组要求字面量赋值
     'no-new-object': 'error', // 对象使用字面值创建对象
@@ -38,8 +45,8 @@ module.exports = {
     'prefer-template': 'error', // 建议使用模板字符串
     'no-eval': 'error', // 禁止使用eval
     'no-useless-escape': 'off', // 不要使用不必要的转义字符
-    'func-style': 'error', // 用命名函数表达式而不是函数声明
-    'prefer-rest-params': 'error', // 建议使用rest参数而不是参数
+    'func-style': 'off', // 用命名函数表达式而不是函数声明
+    'prefer-rest-params': 'off', // 建议使用rest参数而不是参数
     'space-before-function-paren': ['error', 'never'], // 函数前不允许使用空格或
     'space-before-blocks': ['error', 'always'], // 块前需要空格
     'no-param-reassign': 'off', // 不允许重新分配函数参数
@@ -48,7 +55,7 @@ module.exports = {
     'arrow-spacing': 'error', // 箭头函数的箭头前后需要空格
     //  "arrow-parens": ["error", "always"], // 在arrow函数参数中需要paren
     'arrow-body-style': ['off', 'always'], // 在箭头函数体中需要大括号
-    'no-confusing-arrow': ['error', { allowParens: true }], // 不允许箭头函数与比较混淆
+    'no-confusing-arrow': ['off', { allowParens: true }], // 不允许箭头函数与比较混淆
     'no-useless-constructor': 'error', // 不允许不必要的构造函数
     'no-dupe-class-members': 'error', // 不允许在类成员中使用重复名称
     'no-duplicate-imports': ['error', { includeExports: true }], // 不允许重复导入
@@ -97,7 +104,7 @@ module.exports = {
     'no-new-wrappers': 'error', // 不允许基元包装实例
     radix: ['error', 'as-needed'], // 需要基数参数
     //  "id-length": "error",
-    camelcase: ['error', { properties: 'always' }], // 要求驼峰式命名对象、函数、实例
+    camelcase: 'off', // 要求驼峰式命名对象、函数、实例
     'new-cap': 'off', // 要求构造函数名称以大写字母开头
     'no-underscore-dangle': 'off', // 不要用前置或后置下划线
   },
